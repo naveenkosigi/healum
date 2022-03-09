@@ -1,5 +1,5 @@
 export class textNoteModel{
 
-    constructor(private description:String,private id:String){}
+    constructor(public description:String,private id:String){}
 
 }
