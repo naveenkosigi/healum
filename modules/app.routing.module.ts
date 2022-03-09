@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes : Routes=[
     {path:'text-module',loadChildren: () => import('../modules/text.notes.module').then(m => m.textNotesModule)},
+    {path:'article-module',loadChildren: () => import('../modules/article.notes.module').then(m => m.articleNotesModule)},
     {path:'',redirectTo:'text-module',pathMatch: 'full'}
 ];
 
