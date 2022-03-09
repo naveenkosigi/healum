@@ -6,3 +6,7 @@ form{
 .buttons-container{
     padding: 20px;
 }
+
+.errors{
+    margin: 0.5rem;
+}
