@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NotesEditFormComponent } from "components/notes-edit-form/notes-edit-form.component";
 import { NotesMainPageComponent } from "components/notes-main-page-component/notes-main-page-component.component";
+import { NotesListViewComponent } from "components/notes-list-view/notes-list-view.component";
 import { sharedModule } from "./shared.module";
 
 
@@ -19,7 +20,8 @@ const routes:Routes=[
     ],
     declarations:[
         NotesMainPageComponent,
-        NotesEditFormComponent
+        NotesEditFormComponent,
+        NotesListViewComponent
     ]
 })
 
