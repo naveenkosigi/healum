@@ -13,7 +13,7 @@
 
     <div class="d-flex justify-content-center buttons-container">
         <button type="button" class="btn btn-primary" (click)="saveNote()" [disabled]="!notesDescription.valid">Add Note</button> &nbsp; &nbsp;
-        <button type="button" class="btn btn-outline-danger">Cancel</button>
+        <button type="button" class="btn btn-outline-danger" (click)="notesDescription.reset()">Cancel</button>
     </div>
 </form>
 
