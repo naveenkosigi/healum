@@ -1,0 +1,7 @@
+form{
+    width: 50%;
+}
+
+form *{
+    padding: 10px;
+}
