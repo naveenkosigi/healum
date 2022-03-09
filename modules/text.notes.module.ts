@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { NotesEditFormComponent } from "components/notes-edit-form/notes-edit-form.component";
 import { NotesMainPageComponent } from "components/notes-main-page-component/notes-main-page-component.component";
+import { sharedModule } from "./shared.module";
 
 
 const routes:Routes=[
@@ -10,7 +11,8 @@ const routes:Routes=[
 
 @NgModule({
     imports:[
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        sharedModule
     ],
     exports:[
 

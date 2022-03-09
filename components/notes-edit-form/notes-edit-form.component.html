@@ -3,11 +3,11 @@
 
 <form>
     <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="notesDescription" name="description" [formControl]="notesDescription"></textarea>
         <label for="floatingTextarea">Note Description</label>
         
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary">Add Note</button> &nbsp; &nbsp;
+            <button type="button" class="btn btn-primary" (click)="saveNote()">Add Note</button> &nbsp; &nbsp;
             <button type="button" class="btn btn-outline-danger">Cancel</button>
         </div>
 
