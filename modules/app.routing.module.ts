@@ -2,7 +2,8 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 const routes : Routes=[
-    {path:'text-module',loadChildren: () => import('../modules/text.notes.module').then(m => m.textNotesModule)}
+    {path:'text-module',loadChildren: () => import('../modules/text.notes.module').then(m => m.textNotesModule)},
+    {path:'',redirectTo:'text-module',pathMatch: 'full'}
 ];
 
 @NgModule({
