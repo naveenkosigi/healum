@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { NotesMainPageComponent } from "src/app/notes-main-page-component/notes-main-page-component.component";
+import { NotesEditFormComponent } from "components/notes-edit-form/notes-edit-form.component";
+import { NotesMainPageComponent } from "components/notes-main-page-component/notes-main-page-component.component";
 
 
 const routes:Routes=[
@@ -15,7 +16,8 @@ const routes:Routes=[
 
     ],
     declarations:[
-        NotesMainPageComponent
+        NotesMainPageComponent,
+        NotesEditFormComponent
     ]
 })
 
