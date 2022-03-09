@@ -29,7 +29,8 @@ export class NotesEditFormComponent implements OnInit {
 
   saveNote():void{
     console.log(this.notesDescription);
-    this.store.dispatch(notesTextActions.addTextNote({note:new textNoteModel(this.notesDescription.value,"123")}));
+    this.store.dispatch(notesTextActions.addTextNote({note:new textNoteModel(this.notesDescription.value,Date.now()+""
+    )}));
   }
 
 }

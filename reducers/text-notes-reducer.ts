@@ -13,11 +13,12 @@ export const initialTextNotesState:textNotesState={
 
 export const notesTextReducer=createReducer(
     initialTextNotesState,
-    on(notesTextActions.addTextNote,(state,{note}) => (
-        {
+    on(notesTextActions.addTextNote,function(state,note){
+
+        return {
             ...state,
-            textNotes:[...state.textNotes,note]
+            textNotes:[...state.textNotes,note.note]
         }
-    ))
+    })
 );
 
