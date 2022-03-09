@@ -2,6 +2,6 @@ form{
     width: 50%;
 }
 
-form *{
-    padding: 10px;
+.buttons-container{
+    padding: 20px;
 }
