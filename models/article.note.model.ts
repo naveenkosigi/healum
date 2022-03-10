@@ -1,6 +1,7 @@
 
 export class articleNoteModel{
-    constructor(public title:String,public description:String,private id:String){
-        
+    private id:String;
+    constructor(public title:String,public description:String){
+        this.id=Date.now()+"";
     }
 }

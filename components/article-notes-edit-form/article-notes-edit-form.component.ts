@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { articleNoteModel } from 'models/article.note.model';
 import { articleNotesState } from 'reducers/article-notes-reducer';
 import { Observable, Subscription } from 'rxjs';
+import * as notesArticleActions from "../../actions/article-notes-action";
 
 @Component({
   selector: 'app-article-notes-edit-form',
@@ -34,6 +36,9 @@ export class ArticleNotesEditFormComponent implements OnInit,OnDestroy {
       return;
     }
     console.log(this.formGroup);
+    this.store.dispatch(notesArticleActions.addArticleNote(
+      {note:new articleNoteModel(this.formGroup.controls['notesTitle'].value,this.formGroup.controls['notesDescription'].value)}
+    ))
   }
 
   ngOnDestroy(): void {

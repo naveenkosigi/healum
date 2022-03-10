@@ -16,7 +16,7 @@ export const articleNotesReducer=createReducer(
 
         return {
             ...state,
-            textNotes:[...state.articleNotes,note.note]
+            articleNotes:[...state.articleNotes,note.note]
         }
     })
 );

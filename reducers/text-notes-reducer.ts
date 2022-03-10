@@ -4,7 +4,7 @@ import * as notesTextActions from "../actions/text-notes-action";
 import { articleNotesState } from "./article-notes-reducer";
 
 export interface appState{
-    appState:textNotesState,
+    textNotesState:textNotesState,
     articleNotesState:articleNotesState
 }
 

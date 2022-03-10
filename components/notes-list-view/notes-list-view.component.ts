@@ -18,7 +18,7 @@ export class NotesListViewComponent implements OnInit,OnDestroy {
     this.storeObservable=this.store.select(state => state);
 
     this.subscription=this.storeObservable.subscribe(data => {
-      this.notes=data.appState.textNotes;
+      this.notes=data.textNotesState.textNotes;
     });
   }
 
