@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { pictureNotesModel } from 'models/picture.note.model';
 import { appState } from 'reducers/text-notes-reducer';
-import { Observable, Subscription } from 'rxjs';
 import * as pictureNotesActions from "../../actions/picture-notes-action"; 
 
 @Component({
