@@ -15,7 +15,7 @@ export class NotesComponent implements OnInit {
   }
 
   handleMouseOverCardEvent():void{
-    (this.card.nativeElement as HTMLElement).scrollIntoView({behavior:'smooth',block: 'center',inline: 'center'});
+    (this.card.nativeElement as HTMLElement).scrollIntoView({behavior:'auto',block: 'center'});
   }
 
 }
