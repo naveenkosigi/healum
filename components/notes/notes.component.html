@@ -1,6 +1,8 @@
 <div class="card">
+  <div *ngIf="note.title ?? false" class="card-header">
+    Featured
+  </div>
     <div class="card-body">
-      <h5 class="card-title">Note</h5>
       <p class="card-text">{{note.description}}</p>
     </div>
 </div>
