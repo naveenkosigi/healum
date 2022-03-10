@@ -11,11 +11,9 @@ import * as pictureNotesActions from "../../actions/picture-notes-action";
   templateUrl: './picture-notes-edit-form.component.html',
   styleUrls: ['./picture-notes-edit-form.component.css']
 })
-export class PictureNotesEditFormComponent implements OnInit,OnDestroy {
+export class PictureNotesEditFormComponent implements OnInit{
   
 
-  storeObs:Observable<appState>;
-  subscription:Subscription;
 
   formGroup:FormGroup=new FormGroup({
     notesTitle:new FormControl(null,Validators.required),
@@ -24,9 +22,6 @@ export class PictureNotesEditFormComponent implements OnInit,OnDestroy {
   });
 
   constructor(private store:Store<appState>) { 
-    this.storeObs=this.store.select(state => state);
-
-    this.subscription=this.storeObs.subscribe(data => console.log(data));
   }
 
   ngOnInit(): void {
@@ -35,14 +30,9 @@ export class PictureNotesEditFormComponent implements OnInit,OnDestroy {
   saveNote():void{
     if(!this.formGroup.valid)
       return;
-    console.log(this.formGroup);
     this.store.dispatch(pictureNotesActions.addPictureNote({note:new pictureNotesModel(
       this.formGroup.value.notesTitle,this.formGroup.value.notesDescription,this.formGroup.value.imageUrl
     )}));
-  }
-
-  ngOnDestroy(): void {
-      this.subscription.unsubscribe();
   }
 
   handleImageFieldError():void{

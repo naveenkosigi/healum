@@ -16,8 +16,6 @@ export class NotesListViewComponent implements OnInit,OnDestroy {
   subscription:Subscription;
   notes:textNoteModel[]=[];
   constructor(private store:Store<appState>) {
-    console.log(store);
-    console.log(this.lookUpKeyInState); 
     this.storeObservable=this.store.select(state => state);
 
     
@@ -26,7 +24,6 @@ export class NotesListViewComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
 
     this.subscription=this.storeObservable.subscribe(data => {
-      console.log(this.jsonStringPath(data,this.lookUpKeyInState));
       this.notes=this.jsonStringPath(data,this.lookUpKeyInState);
     });
 

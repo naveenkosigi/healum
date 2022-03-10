@@ -11,21 +11,13 @@ import * as notesArticleActions from "../../actions/article-notes-action";
   templateUrl: './article-notes-edit-form.component.html',
   styleUrls: ['./article-notes-edit-form.component.css']
 })
-export class ArticleNotesEditFormComponent implements OnInit,OnDestroy {
-
-  private storeObs:Observable<articleNotesState>;
-  private subscription:Subscription;
+export class ArticleNotesEditFormComponent implements OnInit{
 
   formGroup:FormGroup=new FormGroup({
     notesTitle:new FormControl(null,Validators.required),
     notesDescription:new FormControl(null,Validators.required)
   });
   constructor(private store:Store<articleNotesState>) { 
-    this.storeObs=this.store.select(state => state);
-
-    this.subscription=this.storeObs.subscribe((data) => {
-      console.log(data);
-    })
   }
 
   ngOnInit(): void {
@@ -34,7 +26,6 @@ export class ArticleNotesEditFormComponent implements OnInit,OnDestroy {
   saveNote():void{
     if(!this.formGroup.valid)
       return;
-    console.log(this.formGroup);
     this.store.dispatch(notesArticleActions.addArticleNote(
       {note:new articleNoteModel(this.formGroup.controls['notesTitle'].value,this.formGroup.controls['notesDescription'].value)}
     ));
@@ -42,7 +33,6 @@ export class ArticleNotesEditFormComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.subscription.unsubscribe();
   }
 
 }
