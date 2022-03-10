@@ -32,8 +32,7 @@ export class NotesEditFormComponent implements OnInit,OnDestroy {
     if(!this.notesDescription.valid)
       return;
     console.log(this.notesDescription);
-    this.store.dispatch(notesTextActions.addTextNote({note:new textNoteModel(this.notesDescription.value,Date.now()+""
-    )}));
+    this.store.dispatch(notesTextActions.addTextNote({note:new textNoteModel(this.notesDescription.value)}));
     this.notesDescription.reset();
   }
 

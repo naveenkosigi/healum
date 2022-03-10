@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { textNoteModel } from 'models/text.note.model';
-import { appState, textNotesState } from 'reducers/text-notes-reducer';
+import { appState} from 'reducers/text-notes-reducer';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({

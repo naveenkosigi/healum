@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     appRoutingModule,
-    StoreModule.forRoot({appState:notesTextReducer,articleNotesState:articleNotesReducer}),
+    StoreModule.forRoot({textNotesState:notesTextReducer,articleNotesState:articleNotesReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

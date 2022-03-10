@@ -1,5 +1,8 @@
 export class textNoteModel{
 
-    constructor(public description:String,private id:String){}
+    private id:String
+    constructor(public description:String){
+        this.id=Date.now()+"";
+    }
 
 }
