@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { textNoteModel } from 'models/text.note.model';
 import { appState} from 'reducers/text-notes-reducer';
@@ -11,22 +11,37 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class NotesListViewComponent implements OnInit,OnDestroy {
 
+  @Input() lookUpKeyInState:String
   storeObservable:Observable<appState>;
   subscription:Subscription;
   notes:textNoteModel[]=[];
-  constructor(private store:Store<appState>) { 
+  constructor(private store:Store<appState>) {
+    console.log(store);
+    console.log(this.lookUpKeyInState); 
     this.storeObservable=this.store.select(state => state);
 
-    this.subscription=this.storeObservable.subscribe(data => {
-      this.notes=data.textNotesState.textNotes;
-    });
+    
   }
 
   ngOnInit(): void {
+
+    this.subscription=this.storeObservable.subscribe(data => {
+      console.log(this.jsonStringPath(data,this.lookUpKeyInState));
+      this.notes=this.jsonStringPath(data,this.lookUpKeyInState);
+    });
+
   }
 
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
   }
+
+  //below is a helper method that helps us to get a path from the state a.b.c => a[b][c]
+  // will make it reusable accross different modules
+  
+  private jsonStringPath(object : any, path : String) : []{      
+    return path.split('.').reduce ( (res, prop) => res[prop], object );
+  }
+
 
 }
