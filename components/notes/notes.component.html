@@ -1,8 +1,8 @@
 <div class="card">
 
-  <img *ngIf="note.imageUrl ?? false" [src]="note.imageUrl" class="card-img-top" alt="No Image">
+  <img *ngIf="note.imageUrl ?? false" [src]="note.imageUrl" class="img-thumbnail" alt="No Image">
   <div *ngIf="note.title ?? false" class="card-header">
-    {{note.title}}
+    <h2>{{note.title}}</h2>
   </div>
     <div class="card-body">
       <p class="card-text">{{note.description}}</p>
