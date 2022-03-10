@@ -9,7 +9,7 @@
     </div>
 
     <div class="text-center">
-        <img src="assets/imageNoPreview.png" class="img-thumbnail" alt="No Image">
+        <img [src]="formGroup.controls.imageUrl.value" class="img-thumbnail" [alt]="'No Image'">
     </div>
     
     <div class="input-container form-floating">
