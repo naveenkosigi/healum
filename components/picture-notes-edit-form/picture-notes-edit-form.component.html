@@ -9,15 +9,15 @@
     </div>
 
     <div class="text-center">
-        <img [src]="formGroup.controls.imageUrl.value" class="img-thumbnail" [alt]="'No Image'">
+        <img [src]="formGroup.controls.imageUrl.value" class="img-thumbnail" [alt]="'No Image'" (error)="handleImageFieldError()">
     </div>
     
     <div class="input-container form-floating">
         
         <input type="text" id="notesTitle" name="title" placeholder="Leave a comment here"  class="form-control" formControlName="imageUrl">    
         <label for="notesTitle">Image URL</label>
-        <div *ngIf="!formGroup.controls.imageUrl.valid && formGroup.controls.imageUrl.touched" class="alert alert-danger errors" role="alert">
-            Mandatory Field
+        <div *ngIf="!formGroup.controls.imageUrl.valid && formGroup.controls.imageUrl.touched" class="alert alert-primary errors" role="alert">
+            Enter a Valid Image URL
         </div>
     </div>
 

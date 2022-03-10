@@ -45,4 +45,8 @@ export class PictureNotesEditFormComponent implements OnInit,OnDestroy {
       this.subscription.unsubscribe();
   }
 
+  handleImageFieldError():void{
+    (<FormControl>this.formGroup.get('imageUrl')).setErrors({'incorrect': true});
+  }
+
 }
