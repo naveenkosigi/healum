@@ -1,4 +1,6 @@
 <div class="card">
+
+  <img *ngIf="note.imageUrl ?? false" [src]="note.imageUrl" class="card-img-top" alt="No Image">
   <div *ngIf="note.title ?? false" class="card-header">
     {{note.title}}
   </div>
