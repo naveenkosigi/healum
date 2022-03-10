@@ -3,9 +3,10 @@
 <form class="mx-auto" [formGroup]="formGroup">
     <h3>New Note</h3>
 
-    <div class="input-container">
-        <label for="notesTitle" class="form-label">Title</label>
-        <input type="text" id="notesTitle" name="title"  class="form-control" formControlName="notesTitle">    
+    <div class="input-container form-floating">
+        
+        <input type="text" id="notesTitle" name="title" placeholder="Leave a comment here"  class="form-control" formControlName="notesTitle">    
+        <label for="notesTitle">Title</label>
         <div *ngIf="!formGroup.controls.notesTitle.valid && formGroup.controls.notesTitle.touched" class="alert alert-danger errors" role="alert">
             Mandatory Field
         </div>
