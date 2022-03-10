@@ -32,13 +32,13 @@ export class ArticleNotesEditFormComponent implements OnInit,OnDestroy {
   }
 
   saveNote():void{
-    if(!this.formGroup.valid){
+    if(!this.formGroup.valid)
       return;
-    }
     console.log(this.formGroup);
     this.store.dispatch(notesArticleActions.addArticleNote(
       {note:new articleNoteModel(this.formGroup.controls['notesTitle'].value,this.formGroup.controls['notesDescription'].value)}
-    ))
+    ));
+    this.formGroup.reset();
   }
 
   ngOnDestroy(): void {
