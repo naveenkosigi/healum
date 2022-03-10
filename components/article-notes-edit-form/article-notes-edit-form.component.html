@@ -1,24 +1,27 @@
 
 
-<form class="mx-auto">
+<form class="mx-auto" [formGroup]="formGroup">
     <h3>New Note</h3>
 
     <div class="input-container">
         <label for="notesTitle" class="form-label">Title</label>
-        <input type="text" id="notesTitle" class="form-control">    
+        <input type="text" id="notesTitle" name="title"  class="form-control" formControlName="notesTitle">    
+        <div *ngIf="!formGroup.controls.notesTitle.valid && formGroup.controls.notesTitle.touched" class="alert alert-danger errors" role="alert">
+            Mandatory Field
+        </div>
     </div>
 
     <div class="form-floating">
-        <textarea style="height: 172px;" class="form-control" placeholder="Leave a comment here" id="notesDescription" name="description" [formControl]="notesDescription"></textarea>
+        <textarea style="height: 172px;" class="form-control" placeholder="Leave a comment here" id="notesDescription" name="description" formControlName="notesDescription"></textarea>
         <label for="floatingTextarea">Note Description</label>
-        <div *ngIf="!notesDescription.valid && notesDescription.touched" class="alert alert-danger errors" role="alert">
+        <div *ngIf="!formGroup.controls.notesDescription.valid && formGroup.controls.notesDescription.touched" class="alert alert-danger errors" role="alert">
             Mandatory Field
         </div>
     </div>
 
     <div class="d-flex justify-content-center buttons-container">
-        <button type="button" class="btn btn-primary" (click)="saveNote()" [disabled]="!notesDescription.valid">Add Note</button> &nbsp; &nbsp;
-        <button type="button" class="btn btn-outline-danger" (click)="notesDescription.reset()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="saveNote()" [disabled]="!formGroup.valid">Add Note</button> &nbsp; &nbsp;
+        <button type="button" class="btn btn-outline-danger" (click)="formGroup.reset()">Cancel</button>
     </div>
 </form>
 

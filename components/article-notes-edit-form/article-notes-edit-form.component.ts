@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-article-notes-edit-form',
@@ -8,14 +8,21 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ArticleNotesEditFormComponent implements OnInit {
 
-  notesDescription:FormControl=new FormControl(null,Validators.required)
+
+  formGroup:FormGroup=new FormGroup({
+    notesTitle:new FormControl(null,Validators.required),
+    notesDescription:new FormControl(null,Validators.required)
+  });
   constructor() { }
 
   ngOnInit(): void {
   }
 
   saveNote():void{
-    
+    if(!this.formGroup.valid){
+      return;
+    }
+    console.log(this.formGroup);
   }
 
 }
