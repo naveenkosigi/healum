@@ -37,7 +37,7 @@ export class PictureNotesEditFormComponent implements OnInit,OnDestroy {
       return;
     console.log(this.formGroup);
     this.store.dispatch(pictureNotesActions.addPictureNote({note:new pictureNotesModel(
-      this.formGroup.value.title,this.formGroup.value.description,this.formGroup.value.imageUrl
+      this.formGroup.value.notesTitle,this.formGroup.value.notesDescription,this.formGroup.value.imageUrl
     )}));
   }
 
