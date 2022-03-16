@@ -12,19 +12,17 @@ import { Observable, Subscription } from 'rxjs';
 export class NotesListViewComponent implements OnInit,OnDestroy {
 
   @Input() lookUpKeyInState:String
-  storeObservable:Observable<appState>;
+  storeObservable:Observable<any>;
   subscription:Subscription;
   notes:textNoteModel[]=[];
   constructor(private store:Store<appState>) {
-    this.storeObservable=this.store.select(state => state);
-
-    
+    this.storeObservable=this.store.select(state => this.jsonStringPath(state,this.lookUpKeyInState));
   }
 
   ngOnInit(): void {
 
     this.subscription=this.storeObservable.subscribe(data => {
-      this.notes=this.jsonStringPath(data,this.lookUpKeyInState);
+      this.notes=data;
     });
 
   }

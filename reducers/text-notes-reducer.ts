@@ -2,10 +2,12 @@ import { createReducer, on } from "@ngrx/store";
 import { textNoteModel } from "models/text.note.model";
 import * as notesTextActions from "../actions/text-notes-action";
 import { articleNotesState } from "./article-notes-reducer";
+import { pictureNotesState } from "./picture-notes-reducer";
 
 export interface appState{
     textNotesState:textNotesState,
-    articleNotesState:articleNotesState
+    articleNotesState:articleNotesState,
+    pictureNotesState:pictureNotesState
 }
 
 
