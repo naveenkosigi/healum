@@ -16,11 +16,9 @@ export const initialPictureNotesState:pictureNotesState={
 
 export const pictureNotesReducer=createReducer(
     initialPictureNotesState,
-    on(pictureNotesActions.addPictureNote,function(state,note){
-
-        return {
+    on(pictureNotesActions.addPictureNote,(state,note) => 
+        ({
             ...state,
             pictureNotes:[...state.pictureNotes,note.note]
-        }
-    })
-);
+        })
+    ));    
