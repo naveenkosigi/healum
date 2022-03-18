@@ -29,6 +29,7 @@ export class ArticleNotesEditFormComponent implements OnInit{
       required:true
     })
   ];
+  
   formGroup:FormGroup=new FormGroup({
     notesTitle:new FormControl(null,Validators.required),
     notesDescription:new FormControl(null,Validators.required)

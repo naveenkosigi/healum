@@ -18,7 +18,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   get isValid():boolean{
-    return this.form.controls[this.question.key].valid;
+    if(this.form.controls[this.question.key].invalid && this.form.controls[this.question.key].touched){
+      return false;
+    }
+    return true;
   }
 
 }
