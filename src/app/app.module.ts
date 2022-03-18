@@ -10,11 +10,12 @@ import { environment } from 'src/environments/environment';
 
 
 import { AppComponent } from './app.component';
+import { sharedModule } from 'modules/shared.module';
+import { dynamicFormsService } from 'services/dynamicforms.service';
 
 @NgModule({
   declarations: [
-    AppComponent
-    
+    AppComponent    
   ],
   imports: [
     BrowserModule,

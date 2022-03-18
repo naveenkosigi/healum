@@ -1,13 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { DynamicFormConstructorComponent } from "components/dynamic-form-constructor/dynamic-form-constructor.component";
+import { DynamicFormComponent } from "components/dynamic-form/dynamic-form.component";
 import { NotesListViewComponent } from "components/notes-list-view/notes-list-view.component";
 import { NotesComponent } from "components/notes/notes.component";
 
 @NgModule({
     declarations:[
         NotesListViewComponent,
-        NotesComponent
+        NotesComponent,
+        DynamicFormComponent,
+        DynamicFormConstructorComponent
     ],
     imports:[
         CommonModule,
@@ -19,7 +23,9 @@ import { NotesComponent } from "components/notes/notes.component";
         ReactiveFormsModule,
         FormsModule,
         NotesListViewComponent,
-        NotesComponent
+        NotesComponent,
+        DynamicFormComponent,
+        DynamicFormConstructorComponent
     ]
 })
 

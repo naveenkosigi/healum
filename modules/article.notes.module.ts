@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ArticleMainPageComponent } from "components/article-main-page/article-main-page.component";
 import { ArticleNotesEditFormComponent } from "components/article-notes-edit-form/article-notes-edit-form.component";
+import { dynamicFormsService } from "services/dynamicforms.service";
 import { sharedModule } from "./shared.module";
 
 const paths:Routes=[
@@ -16,7 +17,8 @@ const paths:Routes=[
     declarations:[
         ArticleMainPageComponent,
         ArticleNotesEditFormComponent
-    ]
+    ],
+    providers:[dynamicFormsService]
 })
 
 export class articleNotesModule{}

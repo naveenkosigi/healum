@@ -1,0 +1,18 @@
+<div [formGroup]="form">
+
+    <div [ngSwitch]="question.controlType">
+        <div *ngSwitchCase="'textbox'" class="input-container form-floating">
+        
+            <input type="text" [id]="question.key" name="title" placeholder="Leave a comment here"  class="form-control" [formControlName]="question.key">    
+            <label [attr.for]="question.key">{{question.label}}</label>
+            <div class="alert alert-danger errors" role="alert" *ngIf="!isValid">{{question.label}} is required</div>
+        </div>
+
+        <div class="form-floating" *ngSwitchCase="'textarea'">
+            <textarea style="height: 172px;" class="form-control" placeholder="Leave a comment here" [id]="question.key" name="description" [formControlName]="question.key"></textarea>
+            <label [attr.for]="question.key">{{question.label}}</label>
+            <div class="alert alert-danger errors" role="alert" *ngIf="!isValid">{{question.label}} is required</div>
+        </div>   
+    </div>
+</div>
+
