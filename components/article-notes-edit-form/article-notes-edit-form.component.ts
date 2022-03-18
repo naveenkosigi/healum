@@ -26,10 +26,14 @@ export class ArticleNotesEditFormComponent implements OnInit{
     new textArea({
       key:"notesDescription",
       label:'Note Description',
-      required:true
+      required:true,
+      validators:[function testValidator(){
+        console.log("testValidators");
+        return Promise.resolve(null);
+      }]
     })
   ];
-  
+
   formGroup:FormGroup=new FormGroup({
     notesTitle:new FormControl(null,Validators.required),
     notesDescription:new FormControl(null,Validators.required)

@@ -1,3 +1,6 @@
+import { ValidationErrors } from "@angular/forms";
+import { Observable } from "rxjs";
+
 export class QuestionBase<T> {
     value: T|undefined;
     key: string;
@@ -7,16 +10,18 @@ export class QuestionBase<T> {
     controlType: string;
     type: string;
     options: {key: string, value: string}[];
+    validators:(() => Promise<ValidationErrors | null> | Observable<ValidationErrors | null>)[]
   
     constructor(options: {
-        value?: T;
-        key?: string;
-        label?: string;
-        required?: boolean;
-        order?: number;
-        controlType?: string;
-        type?: string;
-        options?: {key: string, value: string}[];
+        value?: T,
+        key?: string,
+        label?: string,
+        required?: boolean,
+        order?: number,
+        controlType?: string,
+        type?: string,
+        options?: {key: string, value: string}[],
+        validators?:(() => Promise<ValidationErrors | null> | Observable<ValidationErrors | null>)[]
       } = {}) {
       this.value = options.value;
       this.key = options.key || '';
@@ -26,5 +31,6 @@ export class QuestionBase<T> {
       this.controlType = options.controlType || '';
       this.type = options.type || '';
       this.options = options.options || [];
+      this.validators=options.validators || [];
     }
   }

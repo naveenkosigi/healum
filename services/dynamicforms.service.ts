@@ -16,7 +16,7 @@ export class dynamicFormsService{
         let group:any={};
 
         questions.forEach((question) => {
-            group[question.key]=question.required ? new FormControl(question.value || "",Validators.required) : new FormControl(question.value || Validators.required);
+            group[question.key]=question.required ? new FormControl(question.value || "",Validators.required,question.validators) : new FormControl(question.value,null,question.validators);
         });
 
         return new FormGroup(group);
